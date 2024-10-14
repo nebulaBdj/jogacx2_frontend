@@ -1,1 +1,1 @@
-export type ClassNamesType<T extends string> = Partial<Record<T, string>>;
+export type ClassNamesType<T extends string> = Partial<Record<T, string>>
