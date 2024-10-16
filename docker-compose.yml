@@ -1,0 +1,25 @@
+# 도커 컴포즈 -> 여러개의 도커 컨테이너를 듸우기 위해 사용되는 간단한 오케스트레이션 도구
+# 참고 : https://github.com/vercel/next.js/blob/canary/examples/with-docker-compose/docker-compose.prod.yml
+
+version: '3' # 도커 컴포즈의 버전
+
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: . # Dockerfile이 있는 현재 디렉토리
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '3000:3000'
+    networks: # docker network create my_network로 네트워크를 미리 만들어줘야 한다.
+      - my_network
+
+networks:
+  my_network:
+    external: true
+# 해당 코드를 작성한 뒤
+# docker-compose -f docker-compose.yml up -d
+# 를 하여 next-app 서비스를 만든다.
+# 즉 docker-compose.yml 파일을 통해서 Next.js 애플리케이션을 컨테이너화 하여
+# 자동 재시작 및 네트워크 설정 등을 통해 관리할 수 있는 환경을 제공합니다.
