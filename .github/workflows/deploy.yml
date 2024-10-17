@@ -31,7 +31,7 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ secrets.NCP_CONTAINER_REGISTRY }}/cnergy-frontend:S{{ github.sha }} #깃허브 커밋 해시값으로 이미지 구분
+          tags: ${{ secrets.NCP_CONTAINER_REGISTRY }}/cnergy-frontend:${{ github.sha }} #깃허브 커밋 해시값으로 이미지 구분
 
   pull_from_registry:
     name: NCP 접속 후 이미지 다운로드 및 배포
