@@ -11,9 +11,7 @@ const Input = forwardRef<HTMLInputElement, UseInputProps>((props, ref) => {
   const { getBaseProps, getInputProps, isClearable, getClearButtonProps } =
     useInput({ ...props, ref })
 
-  const imageLoader = ({ src }: { src: string }) => {
-    return src
-  }
+  const img = '/images/blue-check.png'
 
   return (
     <>
@@ -36,8 +34,8 @@ const Input = forwardRef<HTMLInputElement, UseInputProps>((props, ref) => {
       <If condition={!!success && !error && !!value}>
         <div className="flex gap-8 mt-4 ml-8 items-center">
           <Image
-            loader={imageLoader}
-            src="/images/blue-check.png"
+            loader={() => img}
+            src={img}
             alt="checked"
             width={20}
             height={20}

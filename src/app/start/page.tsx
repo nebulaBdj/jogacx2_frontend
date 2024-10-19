@@ -33,7 +33,7 @@ export default function Start() {
   const progressBarWidth = `${(step / 3) * 100}%`
 
   return (
-    <div className=" h-screen overflow-hidden">
+    <div className="w-full h-screen overflow-hidden">
       <StartHeader onBack={handleBack}>
         <div className={cn('relative mt-15 mx-20', step === 4 && 'opacity-0')}>
           <div className="bg-black h-10 w-10 absolute bottom-0" />
@@ -44,7 +44,7 @@ export default function Start() {
           />
         </div>
 
-        <div className="flex h-full">
+        <div>
           <If condition={step === 1}>
             <Step1 setError={setError} />
           </If>

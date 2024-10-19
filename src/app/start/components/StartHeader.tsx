@@ -12,7 +12,7 @@ export default function StartHeader({ children, onBack }: StartHeaderProps) {
         <Left className="absolute left-20" onClick={onBack} />
         <span>조각조각 시작하기</span>
       </header>
-      <main className="flex-grow">{children}</main>
+      <main className="h-full">{children}</main>
     </div>
   )
 }
