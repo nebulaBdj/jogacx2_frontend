@@ -27,8 +27,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        black: '#000',
+        white: '#fff',
+        system_red: '#FF5D5E',
+        system_blue: '#528DFF',
+        accent_100: '#FF4F38',
+        primary_foundation_40: '#A3A3A8',
+        primary_foundation_10: '#E9E9EA',
+        primary_foundation_50: '#8D8D92',
+        primary_foundation_60: '#76767C',
+        primary_foundation_30: '#BBBBBE',
+        primary_foundation_5: '#F3F3F4',
       },
       width: px0To500,
       height: px0To500,

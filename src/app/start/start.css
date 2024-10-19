@@ -1,0 +1,7 @@
+.title {
+  @apply text-2xl font-semibold leading-34 mt-24 mb-40;
+}
+
+.subtitle {
+  @apply text-lg font-semibold leading-relaxed mt-44;
+}

@@ -18,6 +18,6 @@ const Button = forwardRef<HTMLButtonElement, UseButtonProp>(
   },
 )
 
-Button.displayName = 'Crayon-Button'
+Button.displayName = 'q-Button'
 
 export default Button
