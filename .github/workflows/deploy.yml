@@ -46,7 +46,9 @@ jobs:
           password: ${{ secrets.NCP_PASSWORD }}
           port: ${{ secrets.NCP_PORT }}
           script: |
-            if [-z "$GITHUB_SHA" ]; then
+            docker pull ${{ secrets.NCP_CONTAINER_REGISTRY }}/cnergy-frontend:${{ github.sha }}
+            
+            if [ -z "$GITHUB_SHA" ]; then
               echo "GITHUB_SHA 환경 변수가 설정되지 않았습니다. 최신 이미지를 사용합니다."
               IMAGE_ID=$(docker images --format "{{.ID}}" | head -n 1)
             else
