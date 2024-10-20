@@ -11,6 +11,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   max-width: 600px;
+  margin: 0 auto;
   min-height: 600px;
   color: #1a1a25;
   overflow: hidden;

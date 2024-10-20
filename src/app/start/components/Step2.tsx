@@ -34,7 +34,7 @@ export default function Step2({ setError }: Step2Props) {
       if (regex.test(value)) {
         setUserInfo({ ...userInfo, age: value ? Number(value) : undefined })
         setErrorMessage('')
-        if (!gender) {
+        if (gender) {
           setError(false)
         }
       } else {
