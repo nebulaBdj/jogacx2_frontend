@@ -58,6 +58,7 @@ export function useInput(props: UseInputProps) {
         !error && !!value && 'border-black',
       ),
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [wrapperClassName, error],
   )
 

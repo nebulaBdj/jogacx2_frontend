@@ -40,7 +40,7 @@ const boxes = [
     text: '휴식',
     width: '100px',
     fontSize: '18px',
-    startX: '40%',
+    startX: '120%',
     startY: '-15%',
     endX: '70%',
     endY: '270%',
@@ -50,7 +50,7 @@ const boxes = [
     text: '소셜',
     width: '66px',
     fontSize: '14px',
-    startX: '60%',
+    startX: '80%',
     startY: '-10%',
     endX: '55%',
     endY: '180%',
@@ -60,7 +60,7 @@ const boxes = [
     text: '건강',
     width: '52px',
     fontSize: '12px',
-    startX: '100%',
+    startX: '110%',
     startY: '-5%',
     endX: '80%',
     endY: '100%',
@@ -150,10 +150,10 @@ export default function Step4() {
     <div className="relative">
       <div className="absolute -z-1 w-screen h-screen bg-gradient-to-b from-white via-[#fffbfb] to-[#ffa89c]" />
       <div className="flex flex-col items-center mt-34">
-        <h2 className="text-primary_foundation_60">
+        <h2 className="text-primary_foundation_60 relative">
           환영해요, {userInfo.name}님!
         </h2>
-        <h1 className="relative title !mt-0 !z-2">
+        <h1 className="relative title !mt-0">
           조각조각이 고망님의 흩어진 <br />
           <span className="text-accent_100">시간 조각</span>들을 찾아줄게요.
         </h1>
