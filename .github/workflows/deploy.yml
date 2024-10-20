@@ -58,5 +58,5 @@ jobs:
 
             docker stop cnergy-frontend || true
             docker rm cnergy-frontend || true
-            docker run -d -p 80:3000 --name cnergy-frontend $IMAGE_ID
+            docker run -d -p 3000:3000 --name cnergy-frontend $IMAGE_ID
             docker image prune -f
