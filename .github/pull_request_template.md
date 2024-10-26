@@ -29,6 +29,7 @@
 - 작업 내용 2
 
 ![image](https://github.com/user-attachments/assets/26d5192b-ab5a-4b7d-816f-63eba54dc46b)
+
 위 캡처본과 같이 드래그해서 커밋 복사 후 붙여넣기  
 
 
