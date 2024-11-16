@@ -1,6 +1,7 @@
 'use client'
 
 import { Button, Category, HomeHeader, House, Div, Right } from '@/components'
+import useUserInfo from '@/store/useUserInfo'
 import { useHomeContext } from './fast/components/Fetcher'
 import { QuickBox } from './components/QuickBox'
 import NoQuickBox from './components/NoQuickBox'
@@ -10,12 +11,14 @@ import TimePiece from './components/TimePiece'
 export default function Home() {
   const { quickStart, totalSavedTime, activities } = useHomeContext()
 
+  const { userInfo } = useUserInfo()
+
   return (
     <HomeHeader>
       <div className="bg-[#F3F3F4]">
         <Div className="bg-primary_foundation_100 flex flex-col gap-20 rounded-t-0 pt-60">
           <h1 className="text-white text-24 mt-10">
-            고먕님, <br /> 지금 시간 조각을 모아볼까요?
+            {userInfo.nickname}님, <br /> 지금 시간 조각을 모아볼까요?
           </h1>
           <Button
             type="button"
