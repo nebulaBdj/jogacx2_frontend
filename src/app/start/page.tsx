@@ -46,7 +46,7 @@ export default function Start() {
         nickname: userInfo.nickname,
         birthYear: userInfo.birthYear,
         gender: userInfo.gender,
-        profileImage: userInfo.profileImage,
+        profileImage: `${process.env.NEXT_PUBLIC_IMAGE_URL}/profile/profile/${userInfo.profileImage}.svg`,
       })
     }
   }
