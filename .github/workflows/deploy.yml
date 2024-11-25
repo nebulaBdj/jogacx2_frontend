@@ -61,12 +61,12 @@ jobs:
             docker run -d \
             -p 3000:3000 \
             --name cnergy-frontend \
-            -e NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} \
-            -e NEXT_PUBLIC_IMAGE_URL=${{ secrets.NEXT_PUBLIC_IMAGE_URL }} \
-            -e NEXT_PUBLIC_KAKAO_API_KEY=${{ secrets.NEXT_PUBLIC_KAKAO_API_KEY }} \
-            -e NEXT_PUBLIC_KAKAO_KEY=${{ secrets.NEXT_PUBLIC_KAKAO_KEY }} \
-            -e NEXT_PUBLIC_MASTER_TOKEN=${{ secrets.NEXT_PUBLIC_MASTER_TOKEN }} \
-            -e NEXT_PUBLIC_SOCIAL_LOGIN_API=${{ secrets.NEXT_PUBLIC_SOCIAL_LOGIN_API }} \
+            -e NEXT_PUBLIC_API_URL:${{ secrets.NEXT_PUBLIC_API_URL }} \
+            -e NEXT_PUBLIC_IMAGE_URL:${{ secrets.NEXT_PUBLIC_IMAGE_URL }} \
+            -e NEXT_PUBLIC_KAKAO_API_KEY:${{ secrets.NEXT_PUBLIC_KAKAO_API_KEY }} \
+            -e NEXT_PUBLIC_KAKAO_KEY:${{ secrets.NEXT_PUBLIC_KAKAO_KEY }} \
+            -e NEXT_PUBLIC_MASTER_TOKEN:${{ secrets.NEXT_PUBLIC_MASTER_TOKEN }} \
+            -e NEXT_PUBLIC_SOCIAL_LOGIN_API:${{ secrets.NEXT_PUBLIC_SOCIAL_LOGIN_API }} \
             $IMAGE_ID
 
             docker image prune -f
