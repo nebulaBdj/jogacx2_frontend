@@ -15,6 +15,11 @@ jobs:
       - name: Checkout # GitHub Action은 해당 프로젝트가 만들어진 환경에서 checkout하고 나서 실행
         uses: actions/checkout@v3
 
+      - name: ENV File 설정중
+        run: |
+          echo "${{ secrets.ENV }}" > .env
+        shell: bash
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -61,6 +66,12 @@ jobs:
             docker run -d \
             -p 3000:3000 \
             --name cnergy-frontend \
+            -e NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} \
+            -e NEXT_PUBLIC_IMAGE_URL=${{ secrets.NEXT_PUBLIC_IMAGE_URL }} \
+            -e NEXT_PUBLIC_KAKAO_API_KEY=${{ secrets.NEXT_PUBLIC_KAKAO_API_KEY }} \
+            -e NEXT_PUBLIC_KAKAO_KEY=${{ secrets.NEXT_PUBLIC_KAKAO_KEY }} \
+            -e NEXT_PUBLIC_MASTER_TOKEN=${{ secrets.NEXT_PUBLIC_MASTER_TOKEN }} \
+            -e NEXT_PUBLIC_SOCIAL_LOGIN_API=${{ secrets.NEXT_PUBLIC_SOCIAL_LOGIN_API }} \
             $IMAGE_ID
 
             docker image prune -f
