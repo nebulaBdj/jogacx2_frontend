@@ -16,7 +16,10 @@ export default function Step3() {
 
   const handleProfileSelect = (profile: string) => {
     setSelectedProfileID(profile)
-    setUserInfo({ ...userInfo, profileImage: profile })
+    setUserInfo({
+      ...userInfo,
+      profileImage: `https://kr.object.ncloudstorage.com/cnergy-bucket/front_image/profile/profile${profile}.svg`,
+    })
   }
 
   return (
