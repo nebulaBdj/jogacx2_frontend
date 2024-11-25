@@ -22,7 +22,7 @@ export const usePostOnboard = () => {
   return useMutation({
     mutationFn: (data: Partial<UserInfo>) => postOnboard(data),
     onSuccess: ({ data }) => {
-      const updatedUserInfo = { ...data, role: 'MEMBER' as 'MEMBER' }
+      const updatedUserInfo = { ...data, role: 'MEMBER' as const }
       setUserInfo(updatedUserInfo)
       router.push('/home')
     },
