@@ -32,6 +32,9 @@ WORKDIR /app
 # 현재 디렉토리를 /app 디렉토리에 복사
 COPY . .
 
+# .next 제거 (기존 빌드 캐시 제거)
+RUN rm -rf .next
+
 # 빌드 시 전달받은 환경 변수를 설정
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
