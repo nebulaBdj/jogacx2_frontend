@@ -66,6 +66,7 @@ jobs:
             -e NEXT_PUBLIC_KAKAO_API_KEY=${{ secrets.NEXT_PUBLIC_KAKAO_API_KEY }} \
             -e NEXT_PUBLIC_KAKAO_KEY=${{ secrets.NEXT_PUBLIC_KAKAO_KEY }} \
             -e NEXT_PUBLIC_MASTER_TOKEN=${{ secrets.NEXT_PUBLIC_MASTER_TOKEN }} \
+            -e NEXT_PUBLIC_SOCIAL_LOGIN_API=${{ secrets.NEXT_PUBLIC_SOCIAL_LOGIN_API }} \
             $IMAGE_ID
 
             docker image prune -f
