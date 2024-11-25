@@ -38,7 +38,7 @@ export default function Step3() {
             <div className="absolute inset-0 bg-accent-10 blur-[20px] -z-10" />
             <Image
               alt="image"
-              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/profile/profile${id}.svg`}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/image/profile/profile${id}.svg`}
               width={208}
               height={208}
             />
@@ -66,7 +66,7 @@ export default function Step3() {
 
             <Image
               alt="image"
-              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/profile/profile${id}.svg`}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/image/profile/profile${id}.svg`}
               layout="fill"
               objectFit="cover"
               className="p-5"
