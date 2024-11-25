@@ -48,7 +48,7 @@ export default function ActivityPage() {
           body: JSON.stringify(selectedActivityLocal),
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_MASTER_TOKEN}`,
+            Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1lbWJlcklkIjoiNDQ0OTYxMzMtZTU5Ny00NTc0LWIyMGUtZjYxNjdkNDk5MzQyIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTczMDIwODQxMiwiZXhwIjo5NzMwMjk0ODEyfQ.DFLME8d-IRhCOOJ_PXKtcxcrDWGIwAOVX8VSepai-PD2XJj1hk_l2hZhtTLSLPjGiAC7y8xaG2LCLQx5jhkqHA',
           },
         })
 
@@ -142,7 +142,7 @@ export default function ActivityPage() {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_MASTER_TOKEN}`,
+            Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1lbWJlcklkIjoiNDQ0OTYxMzMtZTU5Ny00NTc0LWIyMGUtZjYxNjdkNDk5MzQyIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTczMDIwODQxMiwiZXhwIjo5NzMwMjk0ODEyfQ.DFLME8d-IRhCOOJ_PXKtcxcrDWGIwAOVX8VSepai-PD2XJj1hk_l2hZhtTLSLPjGiAC7y8xaG2LCLQx5jhkqHA',
           },
         },
       )
