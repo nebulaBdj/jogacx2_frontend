@@ -5,8 +5,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/v1/:path*',
-        destination: 'https://cnergy.p-e.kr/v1/:path*',
+        source: '/api/:path*',
+        destination: 'https://cnergy.p-e.kr/:path*',
       },
     ]
   },
