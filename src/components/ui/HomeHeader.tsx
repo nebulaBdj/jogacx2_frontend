@@ -13,10 +13,10 @@ interface HomeHeaderProps extends StrictPropsWithChildren {
 export default function HomeHeader({ children, title }: HomeHeaderProps) {
   const { profileImage } = useUserInfo().userInfo
   return (
-    <div className="flex flex-col w-full h-screen">
+    <div className="flex w-full flex-col">
       <header
         className={cn(
-          'fixed z-10 w-full font-semibold flex items-center justify-between py-10 h-52 px-24 transition-colors duration-300 font-wavvepado bg-white',
+          'fixed z-10 max-w-[600px] w-full font-semibold flex items-center justify-between py-10 h-52 px-24 transition-colors duration-300 font-wavvepado bg-white',
         )}
       >
         <div className="flex gap-12 items-center h-32">
