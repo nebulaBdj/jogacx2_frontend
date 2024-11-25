@@ -44,7 +44,7 @@ export default function ChoiceSuggestion({
   const [responseData, setResponseData] = useState<ActivityData[]>()
   const [isloading, setIsLoading] = useState(true)
 
-  const masterToken = process.env.NEXT_PUBLIC_MASTER_TOKEN
+  const masterToken = 'eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1lbWJlcklkIjoiNDQ0OTYxMzMtZTU5Ny00NTc0LWIyMGUtZjYxNjdkNDk5MzQyIiwidHlwZSI6ImFjY2VzcyIsImlhdCI6MTczMDIwODQxMiwiZXhwIjo5NzMwMjk0ODEyfQ.DFLME8d-IRhCOOJ_PXKtcxcrDWGIwAOVX8VSepai-PD2XJj1hk_l2hZhtTLSLPjGiAC7y8xaG2LCLQx5jhkqHA'
   const activeType = getActiveType(activityType)
   const postData = {
     spareTime: parseInt(spareTime, 10),
