@@ -26,7 +26,7 @@ export default function HomeHeader({ children, title }: HomeHeaderProps) {
         <div className="h-full aspect-square rounded-full bg-primary_foundation-10">
           <Image
             alt="profile"
-            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/profile/profile${profileImage}.svg`}
+            src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/image/profile${profileImage}.svg`}
             width={208}
             height={208}
             className="p-1"
