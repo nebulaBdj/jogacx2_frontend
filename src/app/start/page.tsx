@@ -17,6 +17,12 @@ export default function Start() {
   const { mutate } = usePostOnboard()
   const { userInfo } = useUserInfo()
 
+  useEffect(()=>{
+    if (userInfo.role === 'GUEST') {
+      setIsLoaded(true)
+    }
+  },[])
+  
   useEffect(() => {
     if (userInfo.nickname) {
       setIsLoaded(true)
