@@ -8,7 +8,7 @@ export default function FooterButtons({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'fixed w-full flex justify-center gap-12 bg-white pt-10 pb-40',
+        'w-full flex justify-center gap-12 bg-white pt-15 pb-40',
         className,
       )}
     >

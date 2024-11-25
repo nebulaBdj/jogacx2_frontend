@@ -27,7 +27,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen">
+    <div className="flex justify-center items-center h-screen">
       <motion.div
         className="relative w-full h-full bg-primary_foundation-100"
         initial={{ opacity: 1 }}
