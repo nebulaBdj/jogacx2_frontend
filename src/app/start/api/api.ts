@@ -1,10 +1,10 @@
 import { http } from '@/api'
-import { UserInfo } from '@/store/useUserInfo'
+import useUserInfo, { UserInfo } from '@/store/useUserInfo'
 import { useMutation, useSuspenseQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 
 export const postOnboard = (data: Partial<UserInfo>) => {
-  return http.post({
+  return http.post<UserInfo>({
     url: '/members/onboard',
     data,
   })
@@ -18,10 +18,12 @@ export const getNicknamePossible = (nickname: string) => {
 
 export const usePostOnboard = () => {
   const router = useRouter()
-
+  const { setUserInfo } = useUserInfo()
   return useMutation({
     mutationFn: (data: Partial<UserInfo>) => postOnboard(data),
-    onSuccess: () => {
+    onSuccess: ({ data }) => {
+      const updatedUserInfo = { ...data, role: 'MEMBER' as 'MEMBER' }
+      setUserInfo(updatedUserInfo)
       router.push('/home')
     },
     onError: (error) => {

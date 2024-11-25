@@ -43,10 +43,10 @@ function LoginCheck() {
 
       const data = await res.json()
       Cookies.set('accessToken', data.data.accessToken)
-      setUserInfo(data.data)
+      setUserInfo(data.data.userInfo)
 
       // role에 따라 페이지 이동 차이
-      sendUserHomeOrStart(data.data.role)
+      sendUserHomeOrStart(data.data.userInfo.role)
     } catch (error) {
       console.log('Error fetching user data', error)
     }
