@@ -58,8 +58,8 @@ jobs:
 
             docker stop cnergy-frontend || true
             docker rm cnergy-frontend || true
-            docker run -d \ 
-            -p 3000:3000 \ 
+            docker run -d \
+            -p 3000:3000 \
             --name cnergy-frontend \
             -e NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} \
             -e NEXT_PUBLIC_IMAGE_URL=${{ secrets.NEXT_PUBLIC_IMAGE_URL }} \
