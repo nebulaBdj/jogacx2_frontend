@@ -26,7 +26,7 @@ export default function ChoiceLocation({ setError }: SetErrorProps) {
   })
 
   const [kakaoLoaded, kakaoerror] = useKakaoLoader({
-    appkey: process.env.NEXT_PUBLIC_KAKAO_KEY!,
+    appkey: 'eacc39192beeb6795003897bf2fc9471',
   })
 
   // 위치 정보를 가져오는 로직
@@ -37,7 +37,7 @@ export default function ChoiceLocation({ setError }: SetErrorProps) {
         {
           method: 'GET',
           headers: {
-            Authorization: `KakaoAK ${process.env.NEXT_PUBLIC_KAKAO_API_KEY}`,
+            Authorization: 'KakaoAK 7e66401593bee45d18ef1de61a6c7c2f',
           },
         },
       )
@@ -118,7 +118,7 @@ export default function ChoiceLocation({ setError }: SetErrorProps) {
           {
             method: 'GET',
             headers: {
-              Authorization: `KakaoAK ${process.env.NEXT_PUBLIC_KAKAO_API_KEY}`,
+              Authorization: 'KakaoAK 7e66401593bee45d18ef1de61a6c7c2f',
             },
           },
         )
@@ -145,7 +145,7 @@ export default function ChoiceLocation({ setError }: SetErrorProps) {
         {
           method: 'GET',
           headers: {
-            Authorization: `KakaoAK ${process.env.NEXT_PUBLIC_KAKAO_API_KEY}`,
+            Authorization: 'KakaoAK 7e66401593bee45d18ef1de61a6c7c2f',
           },
         },
       )
