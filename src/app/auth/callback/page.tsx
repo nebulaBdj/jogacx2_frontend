@@ -21,7 +21,7 @@ function LoginCheck() {
   }
 
   const getUserData = async (socialType: string, sendDataArr: SendData[]) => {
-    let url: string = `/v1/oauth/login/${socialType}?`
+    let url: string = `${process.env.NEXT_PUBLIC_API_URL}/oauth/login/${socialType}?`
     for (let i = 0; i < sendDataArr.length; i += 1) {
       if (i === 0) {
         url += `${sendDataArr[i].name}=${sendDataArr[i].value}`
