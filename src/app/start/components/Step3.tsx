@@ -1,17 +1,23 @@
 'use client'
 
-import { SelectProfile } from '@/components'
+import { Left } from '@/components'
 import useUserInfo from '@/store/useUserInfo'
 import { cn } from '@/util'
 import Image from 'next/image'
 import { useState } from 'react'
 
-const profiles = ['1', '2', '3', '4', '5', '6', '7']
+const profiles = ['1', '2', '3', '4', '5', '6']
 
 export default function Step3() {
   const { userInfo, setUserInfo } = useUserInfo()
+
+  const extractProfileID = (profileImage: string) => {
+    const match = profileImage.match(/profile(\d+)\.svg$/)
+    return match ? match[1] : '1'
+  }
+
   const [selectedProfileID, setSelectedProfileID] = useState(
-    userInfo.profileImage,
+    extractProfileID(userInfo.profileImage),
   )
 
   const handleProfileSelect = (profile: string) => {
@@ -63,7 +69,7 @@ export default function Step3() {
           >
             {selectedProfileID === id && (
               <div className="absolute -top-18">
-                <SelectProfile />
+                <Left />
               </div>
             )}
 
