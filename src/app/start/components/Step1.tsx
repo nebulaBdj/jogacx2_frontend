@@ -2,7 +2,6 @@
 
 import { Input } from '@/components/common'
 import useUserInfo from '@/store/useUserInfo'
-import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { getNicknamePossible } from '../api/api'
 
@@ -85,14 +84,6 @@ export default function Step1({ setError }: Step1Props) {
         placeholder="닉네임을 적어주세요."
         error={errorMessage}
         onChange={handleChangeName}
-      />
-
-      <Image
-        className="absolute right-0 bottom-0"
-        src="/images/bg-start.png"
-        alt="bg"
-        width={292}
-        height={291}
       />
     </div>
   )
