@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useTransition } from 'react'
-import { FooterButtons, HomeHeader, If, TabList } from '@/components'
+import { HomeHeader, If, TabList } from '@/components'
 import { subMonths, addMonths, getYear, getMonth } from 'date-fns'
 import { AsyncBoundaryWithQuery } from '@/react-utils'
 import ArchiveTotal from './components/ArchiveTotal'
@@ -35,11 +35,8 @@ export default function ArchivePage() {
   return (
     <>
       <HomeHeader title="아카이빙">
-        <main className="flex flex-col w-full h-full">
-          <div
-            className="px-24 bg-[linear-gradient(180deg,_rgba(255,255,255),_rgba(255,248,246,0.8)_38%,_rgba(255,220,215,0.8)_98%)] py-10 mt-15 h-full"
-            style={{ minHeight: `calc(100% - 50px)` }}
-          >
+        <main className="flex flex-col w-full relative">
+          <div className="px-24 bg-[linear-gradient(180deg,_rgba(255,255,255),_rgba(255,248,246,0.8)_38%,_rgba(255,220,215,0.8)_98%)] py-10 mt-15 h-full max-h-400">
             <TabList
               tabs={tabs}
               activeTab={activeTab}
@@ -52,29 +49,25 @@ export default function ArchivePage() {
               />
             </AsyncBoundaryWithQuery>
           </div>
-          <div className="absolute top-250 w-full max-w-[600px] bg-white rounded-t-20 py-16">
-            <div className="flex flex-col w-full">
-              <OverviewHeader
-                currentDate={currentDate}
-                setCurrentDate={setCurrentDate}
-                goToPreviousMonth={goToPreviousMonth}
-                goToNextMonth={goToNextMonth}
-              />
-              <If condition={activeTab === 'calendar'}>
-                <div>
-                  <AsyncBoundaryWithQuery>
-                    <CalendarFetcher
-                      year={getYear(currentDate)}
-                      month={getMonth(currentDate) + 1}
-                    >
-                      <CalendarView currentDate={currentDate} />
-                    </CalendarFetcher>
-                  </AsyncBoundaryWithQuery>
-                </div>
-              </If>
-            </div>
+          <div className="absolute top-210 w-full max-w-[600px] bg-white rounded-t-20 py-16">
+            <If condition={activeTab === 'calendar'}>
+              <AsyncBoundaryWithQuery>
+                <CalendarFetcher
+                  year={getYear(currentDate)}
+                  month={getMonth(currentDate) + 1}
+                >
+                  <OverviewHeader
+                    currentDate={currentDate}
+                    setCurrentDate={setCurrentDate}
+                    goToPreviousMonth={goToPreviousMonth}
+                    goToNextMonth={goToNextMonth}
+                  />
+
+                  <CalendarView currentDate={currentDate} />
+                </CalendarFetcher>
+              </AsyncBoundaryWithQuery>
+            </If>
           </div>
-          <FooterButtons className="static" />
         </main>
       </HomeHeader>
     </>

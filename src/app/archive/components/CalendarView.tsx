@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FooterButtons } from '@/components'
 import { useCalendarContext } from '../api/fetcher'
 import Activities from './Activities'
 import Calendar from './Calendar/Calendar'
@@ -25,6 +26,7 @@ export default function CalendarView({ currentDate }: CalendarViewProps) {
         />
       </div>
       <Activities selectedDate={selectedDate} />
+      <FooterButtons />
     </>
   )
 }

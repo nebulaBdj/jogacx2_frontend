@@ -2,6 +2,7 @@
 
 import { generateContext } from '@/react-utils'
 import { StrictPropsWithChildren } from '@/types'
+import { useQuerykeyStore } from '@/store/querykeyStore'
 import { HomeResponse, QuickStartResponse } from '../../api/type'
 import { useGetHomeData, useGetQuickList } from '../../api/queries'
 
@@ -20,7 +21,8 @@ export function HomeFetcher({ children }: StrictPropsWithChildren) {
 }
 
 export function QuickStartFetcher({ children }: StrictPropsWithChildren) {
-  const { data } = useGetQuickList()
+  const { keyForFresh } = useQuerykeyStore()
+  const { data } = useGetQuickList(keyForFresh)
 
   return <QuickStartProvider {...data}>{children}</QuickStartProvider>
 }
