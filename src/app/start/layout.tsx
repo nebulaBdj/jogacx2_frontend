@@ -7,5 +7,5 @@ export const metadata: Metadata = {
   description: '조각조각 - 회원가입 : 사용자 정보 입력',
 }
 export default function StartLayout({ children }: StrictPropsWithChildren) {
-  return <div className="overflow-hidden w-full">{children}</div>
+  return <div className="overflow-hidden w-full h-full">{children}</div>
 }

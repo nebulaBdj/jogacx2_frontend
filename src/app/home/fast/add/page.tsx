@@ -8,7 +8,7 @@ import {
   Div,
   CheckboxWithLabel,
 } from '@/components'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import '@/app/start/start.css'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useQuerykeyStore } from '@/store/querykeyStore'
@@ -48,9 +48,12 @@ export default function FastPage() {
   const { mutate: patch } = usePatchQuickStart(id)
   const { refreshKey } = useQuerykeyStore()
 
+  const hourInputRef = useRef<HTMLInputElement>(null)
+  const minuteInputRef = useRef<HTMLInputElement>(null)
+
   const validateName = (value: string): void => {
     setErrorName(
-      !value.match(/^[a-zA-Z가-힣0-9]{1,10}$/)
+      !value.match(/^[a-zA-Z가-힣\u3131-\u314e0-9]{1,10}$/)
         ? '이름은 10자 이내의 한글/영문/숫자로 설정해 주세요.'
         : '',
     )
@@ -161,6 +164,7 @@ export default function FastPage() {
         <h1 className="subtitle">시작 시간</h1>
         <div className="flex items-center gap-20">
           <Input
+            ref={hourInputRef}
             type="number"
             pattern="\d*"
             placeholder="HH"
@@ -171,6 +175,7 @@ export default function FastPage() {
           />
           <span className="font-semibold">시</span>
           <Input
+            ref={minuteInputRef}
             type="number"
             pattern="\d*"
             placeholder="MM"

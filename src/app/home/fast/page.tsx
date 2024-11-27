@@ -29,7 +29,7 @@ export default function FastPage() {
         )}
       </Div>
       <Button
-        className="fixed inset-x-0 bottom-30 mx-auto w-[60%] whitespace-nowrap"
+        className="fixed inset-x-0 bottom-30 mx-auto w-[80%] max-w-280 whitespace-nowrap"
         onClick={() => router.push('/home/fast/add')}
         rightIcon={<Plus />}
       >

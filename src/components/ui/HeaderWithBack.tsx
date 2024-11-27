@@ -12,12 +12,14 @@ export default function HeaderWithBack({
   title,
 }: StartHeaderProps) {
   return (
-    <div className="flex flex-col h-screen mt-10 overflow-hidden">
+    <div className="flex flex-col mt-10 overflow-hidden w-full h-full">
       <header className="relative font-semibold flex justify-center items-center py-4 min-h-52">
         <IconLeft className="absolute left-20" onClick={onBack} />
         <span>{title}</span>
       </header>
-      <main className="h-full relative">{children}</main>
+      <main className="h-[calc(100%-52px)] relative overflow-auto">
+        {children}
+      </main>
     </div>
   )
 }
