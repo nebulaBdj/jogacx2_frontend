@@ -16,6 +16,9 @@ export const useProfileSelector = (): UseProfileSelectorReturn => {
   const profiles = ['1', '2', '3', '4', '5', '6']
 
   const extractProfileID = (profileImage: string) => {
+    if (!profileImage) {
+      return '1'
+    }
     const match = profileImage.match(/profile(\d+)\.svg$/)
     return match ? match[1] : '1'
   }

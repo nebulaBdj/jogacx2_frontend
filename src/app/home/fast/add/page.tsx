@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react'
 import '@/app/start/start.css'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useQuerykeyStore } from '@/store/querykeyStore'
-import { usePostQuickStart } from '../../api/queries'
+import { usePatchQuickStart, usePostQuickStart } from '../../api/queries'
 
 export default function FastPage() {
   const searchParams = useSearchParams()
@@ -36,9 +36,16 @@ export default function FastPage() {
     searchParams.get('isOffline') === 'true',
   )
 
+  const isEdit = !!searchParams
+
   const router = useRouter()
 
   const { mutate } = usePostQuickStart()
+
+  const id = searchParams?.get('id')
+    ? parseInt(searchParams.get('id') as string, 10)
+    : 0
+  const { mutate: patch } = usePatchQuickStart(id)
   const { refreshKey } = useQuerykeyStore()
 
   const validateName = (value: string): void => {
@@ -101,31 +108,40 @@ export default function FastPage() {
   ])
 
   const handleSubmit = (): void => {
-    mutate(
-      {
-        name,
-        hour: parseInt(hour, 10),
-        minute: parseInt(minute, 10),
-        spareTime: parseInt(extraTime, 10),
-        meridiem: time,
-        type: (() => {
-          if (isOnline && isOffline) {
-            return 'ONLINE_AND_OFFLINE'
-          }
-          if (isOnline) {
-            return 'ONLINE'
-          }
-          return 'OFFLINE'
-        })(),
-      },
-      {
+    const data = {
+      name,
+      hour: parseInt(hour, 10),
+      minute: parseInt(minute, 10),
+      spareTime: parseInt(extraTime, 10),
+      meridiem: time,
+      type: (() => {
+        if (isOnline && isOffline) {
+          return 'ONLINE_AND_OFFLINE' as 'ONLINE_AND_OFFLINE'
+        }
+        if (isOnline) {
+          return 'ONLINE' as 'ONLINE'
+        }
+        return 'OFFLINE' as 'OFFLINE'
+      })(),
+    }
+
+    if (isEdit) {
+      patch(data, {
+        onSuccess: () => {
+          refreshKey()
+          alert('빠른 시작이 수정되었습니다.')
+          router.push('/home/fast')
+        },
+      })
+    } else {
+      mutate(data, {
         onSuccess: () => {
           refreshKey()
           alert('빠른 시작이 등록되었습니다.')
           router.push('/home/fast')
         },
-      },
-    )
+      })
+    }
   }
 
   return (

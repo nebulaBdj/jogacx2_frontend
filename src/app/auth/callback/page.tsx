@@ -43,7 +43,12 @@ function LoginCheck() {
 
       const data = await res.json()
       Cookies.set('accessToken', data.data.accessToken)
-      setUserInfo(data.data.userInfo)
+      setUserInfo({
+        ...data.data.userInfo,
+        profileImage:
+          data.data.userInfo.profileImage ||
+          'https://kr.object.ncloudstorage.com/cnergy-bucket/front_image/profile/profile1.svg',
+      })
 
       // role에 따라 페이지 이동 차이
       sendUserHomeOrStart(data.data.userInfo.role)
