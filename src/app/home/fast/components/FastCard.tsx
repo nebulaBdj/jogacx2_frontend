@@ -4,16 +4,31 @@ import { ActiveTypeMap } from '@/types'
 import { QuickStart } from '../../api/type'
 import { useQuickStart } from '../../hook/useQuickStart'
 
-export default function FastCard(quickStart: QuickStart) {
+export default function FastCard({
+  id,
+  name,
+  hour,
+  minute,
+  spareTime,
+  meridiem,
+  type,
+}: QuickStart) {
   const { push } = useRouter()
   const { goToActivity } = useQuickStart()
-
-  const { id, name, hour, minute, spareTime, meridiem, type } = quickStart
 
   const handleClickEdit = () => {
     const isOnline = type === 'ONLINE' || type === 'ONLINE_AND_OFFLINE'
     const isOffline = type === 'OFFLINE' || type === 'ONLINE_AND_OFFLINE'
-
+    console.log(
+      id,
+      name,
+      hour,
+      minute,
+      spareTime,
+      meridiem,
+      isOnline,
+      isOffline,
+    )
     const query = new URLSearchParams({
       id: id!.toString(),
       name,
