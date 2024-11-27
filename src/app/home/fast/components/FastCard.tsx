@@ -8,13 +8,14 @@ export default function FastCard(quickStart: QuickStart) {
   const { push } = useRouter()
   const { goToActivity } = useQuickStart()
 
-  const { name, hour, minute, spareTime, meridiem, type } = quickStart
+  const { id, name, hour, minute, spareTime, meridiem, type } = quickStart
 
   const handleClickEdit = () => {
     const isOnline = type === 'ONLINE' || type === 'ONLINE_AND_OFFLINE'
     const isOffline = type === 'OFFLINE' || type === 'ONLINE_AND_OFFLINE'
 
     const query = new URLSearchParams({
+      id: id!.toString(),
       name,
       hour: hour.toString(),
       minute: minute.toString(),

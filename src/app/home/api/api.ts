@@ -21,7 +21,7 @@ export const postQuickStart = (data: QuickStartRequest) => {
 }
 
 export const patchQuickStart = (data: QuickStartRequest, id: number) => {
-  return http.post({
+  return http.patch({
     url: `/quick-starts/${id}`,
     data,
   })

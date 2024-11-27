@@ -36,7 +36,7 @@ export default function FastPage() {
     searchParams.get('isOffline') === 'true',
   )
 
-  const isEdit = !!searchParams
+  const isEdit = !!searchParams.get('id')
 
   const router = useRouter()
 
