@@ -116,12 +116,12 @@ export default function FastPage() {
       meridiem: time,
       type: (() => {
         if (isOnline && isOffline) {
-          return 'ONLINE_AND_OFFLINE' as 'ONLINE_AND_OFFLINE'
+          return 'ONLINE_AND_OFFLINE' as const
         }
         if (isOnline) {
-          return 'ONLINE' as 'ONLINE'
+          return 'ONLINE' as const
         }
-        return 'OFFLINE' as 'OFFLINE'
+        return 'OFFLINE' as const
       })(),
     }
 
