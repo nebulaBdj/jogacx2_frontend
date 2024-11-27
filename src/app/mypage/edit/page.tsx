@@ -49,7 +49,6 @@ export default function MyPageEdit() {
           닉네임 수정하기
         </h2>
         <Input
-          success="멋진 이름이에요!"
           label="6자 이내의 한글/영문/숫자를 입력해주세요."
           value={nickname}
           placeholder="닉네임을 적어주세요."

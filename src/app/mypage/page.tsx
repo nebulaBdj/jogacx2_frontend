@@ -37,7 +37,7 @@ export default function MyPage() {
                 <strong className="text-24 text-primary_foundation-100 font-[500]">
                   {nickname}
                 </strong>
-                <span className="ml-2">님의 프로필</span>
+                <span className="ml-5">님의 프로필</span>
               </div>
               <Button
                 leftIcon={<Pencil />}
@@ -50,12 +50,13 @@ export default function MyPage() {
             <span className="text-primary_foundation-40 text-14">{email}</span>
           </div>
 
-          <div className="relative w-140 h-140 rounded-full overflow-hidden border-2 bg-accent-10 border-accent-30">
+          <div className="relative w-140 h-140 rounded-full overflow-hidden border-2 bg-accent-10 border-accent-30 flex items-center justify-center">
             <Image
               src={profileImage}
               alt="프로필 이미지"
               width={100}
               height={100}
+              className="object-cover"
             />
           </div>
         </div>
