@@ -18,7 +18,7 @@ export default function Step4() {
           환영해요, {userInfo.nickname}님!
         </h2>
         <h1 className="relative title !mt-0">
-          조각조각이 고망님의 흩어진 <br />
+          조각조각이 {userInfo.nickname}님의 흩어진 <br />
           <span className="text-accent_100">시간 조각</span>들을 찾아줄게요.
         </h1>
       </div>
