@@ -66,4 +66,5 @@ jobs:
             docker run -d \
             -p 3000:3000 \
             --name cnergy-frontend \
+            $IMAGE_ID
             docker image prune -f
