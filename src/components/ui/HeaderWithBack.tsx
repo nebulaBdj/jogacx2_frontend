@@ -1,6 +1,6 @@
 import { StrictPropsWithChildren } from '@/types'
-import { IconLeft } from '../Icons'
 import { cn } from '@/util'
+import { IconLeft } from '../Icons'
 
 interface StartHeaderProps extends StrictPropsWithChildren {
   onBack: () => void
