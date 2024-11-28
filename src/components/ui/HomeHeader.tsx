@@ -15,10 +15,10 @@ export default function HomeHeader({ children, title }: HomeHeaderProps) {
   const { profileImage } = useUserInfo().userInfo
   const { push } = useRouter()
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-full flex-col relative">
       <header
         className={cn(
-          'fixed z-10 w-full absolute font-semibold flex items-center justify-between py-10 h-52 px-24 transition-colors duration-300 font-wavvepado bg-white',
+          'absolute top-0 z-10 w-full font-semibold flex items-center justify-between py-10 h-52 px-24 transition-colors duration-300 font-wavvepado bg-white',
         )}
       >
         <button

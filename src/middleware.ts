@@ -21,8 +21,8 @@ export function middleware(req: NextRequest) {
     }
   }
 
-  if (pathname !== '/start' && role === 'MEMBER') {
-    return NextResponse.redirect(new URL('/start', req.url))
+  if (pathname == '/start' && role === 'MEMBER') {
+    return NextResponse.redirect(new URL('/home', req.url))
   }
 
   return NextResponse.next()
