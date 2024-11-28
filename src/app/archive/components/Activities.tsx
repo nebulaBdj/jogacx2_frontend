@@ -37,7 +37,7 @@ export default function Activities({ selectedDate }: { selectedDate?: Date }) {
 
   return (
     <>
-      <If condition={!filteredActivities}>
+      <If condition={filteredActivities.length == 0}>
         <div className="bg-primary_foundation-5 flex items-center justify-center p-24">
           <div className="mt-35 mb-20 flex flex-col items-center gap-8">
             <h2 className="text-18">아직 모은 시간 조각이 없어요!</h2>

@@ -44,7 +44,11 @@ export default function Start() {
 
   return (
     <div className="h-full">
-      <HeaderWithBack onBack={handleBack} title="조각조각 시작하기">
+      <HeaderWithBack
+        onBack={handleBack}
+        title="조각조각 시작하기"
+        mainClassName="overflow-hidden"
+      >
         <div className={cn('relative mt-15 mx-20', step === 4 && 'opacity-0')}>
           <div className="bg-black h-10 w-10 absolute bottom-0" />
           <div className="bg-[#E9E9EA] h-4" />

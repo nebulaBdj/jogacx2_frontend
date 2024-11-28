@@ -8,7 +8,7 @@ export default function Step3() {
     useProfileSelector()
 
   return (
-    <div className="h-full px-20 w-full flex flex-col relative">
+    <div className="h-full px-20 w-full flex flex-col relative]">
       <h1 className="title !mb-6">어떤 프로필로 함께 하시겠어요?</h1>
       <h2 className="text-primary_foundation_50 text-sm font-medium leading-snug">
         프로필은 나중에 바꿀 수 있어요
@@ -23,7 +23,7 @@ export default function Step3() {
               selectedProfileID === id && 'opacity-100',
             )}
           >
-            <div className="absolute inset-0 bg-accent-10 blur-[20px] -z-10" />
+            <div className="absolute inset-0 bg-accent-10 blur-[20px] -z-10 rounded-full" />
             <Image
               alt="image"
               src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/image/profile/profile${id}.svg`}

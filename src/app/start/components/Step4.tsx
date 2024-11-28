@@ -11,8 +11,8 @@ export default function Step4() {
   }
 
   return (
-    <div className="relative h-full">
-      <div className="absolute w-screen h-screen bg-gradient-to-b from-white via-[#fffbfb] to-[#ffa89c]" />
+    <div className="relative h-screen">
+      <div className="absolute w-screen h-full bg-gradient-to-b from-white via-[#fffbfb] to-[#ffa89c]" />
       <div className="absolute flex flex-col items-center mt-40 w-full h-330 white-gradient z-10">
         <h2 className="text-primary_foundation_60 relative">
           환영해요, {userInfo.nickname}님!

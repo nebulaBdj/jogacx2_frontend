@@ -26,7 +26,6 @@ axiosInstance.interceptors.request.use(
     }
     // const accessTokenTest = process.env.NEXT_PUBLIC_MASTER_TOKEN
 
-    // TODO: 마스터토큰제거
     config.headers.set('Authorization', `Bearer ${accessToken}`)
     return config
   },
