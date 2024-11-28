@@ -26,7 +26,7 @@ export default function Step3() {
             <div className="absolute inset-0 bg-accent-10 blur-[20px] -z-10 rounded-full" />
             <Image
               alt="image"
-              src={'/image/profile/profile${id}.svg'}
+              src={`/image/profile/profile${id}.svg`}
               width={208}
               height={208}
             />
@@ -54,7 +54,7 @@ export default function Step3() {
 
             <Image
               alt="image"
-              src="/image/profile/profile${id}.svg"
+              src={`/image/profile/profile${id}.svg`}
               layout="fill"
               objectFit="cover"
               className="p-5"
