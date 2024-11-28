@@ -73,7 +73,7 @@ export default function Start() {
           </If>
         </div>
 
-        <div className="absolute bottom-50 w-full py-4 flex justify-center">
+        <div className="w-full py-4 flex justify-center">
           <Button
             className="w-[90%] mx-auto"
             disabled={!!error}

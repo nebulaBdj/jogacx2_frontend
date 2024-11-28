@@ -15,7 +15,7 @@ export default function HeaderWithBack({
   mainClassName,
 }: StartHeaderProps) {
   return (
-    <div className="flex flex-col mt-10 overflow-hidden w-full h-full">
+    <div className="flex flex-col mt-10 overflow-hidden w-full">
       <header className="relative font-semibold flex justify-center items-center py-4 min-h-52">
         <IconLeft className="absolute left-20" onClick={onBack} />
         <span>{title}</span>

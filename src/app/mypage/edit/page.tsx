@@ -82,7 +82,7 @@ export default function MyPageEdit() {
 
               <Image
                 alt="profile image"
-                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/image/profile/profile${id}.svg`}
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/profile/profile${id}.svg`}
                 layout="fill"
                 objectFit="cover"
                 className="p-5"
