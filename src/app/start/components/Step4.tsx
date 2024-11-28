@@ -6,10 +6,6 @@ import Image from 'next/image'
 export default function Step4() {
   const { userInfo } = useUserInfo()
 
-  if (!userInfo.nickname) {
-    return <div>loading...</div>
-  }
-
   return (
     <div className="relative h-screen">
       <div className="absolute w-screen h-full bg-gradient-to-b from-white via-[#fffbfb] to-[#ffa89c]" />

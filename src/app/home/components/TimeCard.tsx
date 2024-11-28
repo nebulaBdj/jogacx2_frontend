@@ -1,5 +1,5 @@
 import { categoryLabels } from '@/app/archive/api/types'
-import { Badge, Cup, Div } from '@/components'
+import { Badge, Div } from '@/components'
 import Image from 'next/image'
 
 interface TimeCardProps {

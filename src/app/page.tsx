@@ -12,7 +12,6 @@ export default function Home() {
   const [logoColor, setlogoColor] = useState('white')
 
   useEffect(() => {
-
     const timer = setTimeout(() => {
       setIsSplash(false)
     }, 1200)

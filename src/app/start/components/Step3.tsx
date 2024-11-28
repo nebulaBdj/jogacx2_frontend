@@ -8,7 +8,7 @@ export default function Step3() {
     useProfileSelector()
 
   return (
-    <div className=" px-20 w-full flex flex-col relative]">
+    <div className="px-20 w-full flex flex-col relative">
       <h1 className="title !mb-6">어떤 프로필로 함께 하시겠어요?</h1>
       <h2 className="text-primary_foundation_50 text-sm font-medium leading-snug">
         프로필은 나중에 바꿀 수 있어요

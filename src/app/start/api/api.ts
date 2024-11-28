@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import { http } from '@/api'
 import useUserInfo, { UserInfo } from '@/store/useUserInfo'
 import { useMutation, useSuspenseQuery } from '@tanstack/react-query'
@@ -24,6 +25,7 @@ export const usePostOnboard = () => {
     onSuccess: ({ data }) => {
       const updatedUserInfo = { ...data, role: 'MEMBER' as const }
       setUserInfo(updatedUserInfo)
+      Cookies.set('role', 'MEMBER')
       router.push('/home')
     },
     onError: (error) => {
