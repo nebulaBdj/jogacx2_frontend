@@ -18,6 +18,7 @@ jobs:
       - name: ENV File 설정중
         run: |
           echo "${{ secrets.ENV }}" > .env
+          cat .env # 디버깅용
         shell: bash
 
       - name: Set up Docker Buildx
@@ -64,6 +65,7 @@ jobs:
             docker stop cnergy-frontend || true
             docker rm cnergy-frontend || true
             docker run -d \
+            --env-file .env \
             -p 3000:3000 \
             --name cnergy-frontend \
             $IMAGE_ID
