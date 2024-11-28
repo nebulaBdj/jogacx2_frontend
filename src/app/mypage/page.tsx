@@ -93,7 +93,7 @@ export default function MyPage() {
               className="px-20 py-16"
               onClick={() => {
                 deleteUserInfo()
-                Cookies.remove('accesstoken')
+                Cookies.remove('accessToken')
                 push('/')
               }}
             >

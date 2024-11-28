@@ -43,6 +43,7 @@ function LoginCheck() {
 
       const data = await res.json()
       Cookies.set('accessToken', data.data.accessToken)
+      Cookies.set('role', data.data.userInfo.role)
       setUserInfo({
         ...data.data.userInfo,
         profileImage:

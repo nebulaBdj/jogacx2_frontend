@@ -1,4 +1,3 @@
-import { transKeyword } from '@/app/archive/components/Treemap/Treemap'
 import TimeCard from './TimeCard'
 import { useHomeContext } from '../fast/components/Fetcher'
 
@@ -12,7 +11,8 @@ export default function TimePiece() {
           key={id}
           time={savedTime}
           title={title}
-          category={transKeyword(keyword.category)}
+          category={keyword.category}
+          imgSrc={keyword.image}
         />
       ))}
     </div>
