@@ -17,7 +17,10 @@ export default function HeaderWithBack({
   return (
     <div className="flex flex-col h-full mt-10 overflow-hidden w-full">
       <header className="relative font-semibold flex justify-center items-center py-4 min-h-52">
-        <IconLeft className="absolute left-20" onClick={onBack} />
+        <IconLeft
+          className="absolute left-20 cursor-pointer"
+          onClick={onBack}
+        />
         <span>{title}</span>
       </header>
       <main
