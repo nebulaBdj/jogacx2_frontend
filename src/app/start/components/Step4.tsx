@@ -24,7 +24,7 @@ export default function Step4() {
       </div>
       <Image
         alt="bg"
-        src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/image/home-img.svg`}
+        src="/image/home-img.svg"
         layout="fill"
         objectFit="over"
         className="absolute bottom-0 z-1 px-20"
