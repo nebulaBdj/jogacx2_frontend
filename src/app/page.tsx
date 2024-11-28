@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSplash(false)
-    }, 1200)
+    }, 1400)
 
     const logotimer = setTimeout(() => {
       setlogoColor('#1A1A25')
@@ -38,7 +38,7 @@ export default function Home() {
         transition={{ duration: 0.5 }}
       >
         <SplashLogoNew
-          className="absolute left-[127px] top-[178px] z-50"
+          className="absolute left-[127px] top-[128px] z-50"
           pieceColor={logoColor}
         />
 
@@ -53,7 +53,7 @@ export default function Home() {
       </motion.div>
       {!isSplash && (
         <>
-          <p className="z-50 font-semibold absolute top-[388px]">
+          <p className="z-50 font-semibold absolute top-[338px]">
             흘려보내는 시간의 조각, 이제는 모아봐요!
           </p>
 
