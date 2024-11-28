@@ -22,8 +22,6 @@ WORKDIR /app
 # 패키지 설치
 RUN npm install
 
-
-
 # Build 스테이지
 FROM deps AS builder
 
@@ -34,33 +32,6 @@ COPY . .
 
 # .next 제거 (기존 빌드 캐시 제거)
 RUN rm -rf .next
-
-# 빌드 시 전달받은 환경 변수를 설정
-ARG NEXT_PUBLIC_API_URL
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-
-ARG NEXT_PUBLIC_IMAGE_URL
-ENV NEXT_PUBLIC_IMAGE_URL=$NEXT_PUBLIC_IMAGE_URL
-
-ARG NEXT_PUBLIC_KAKAO_API_KEY
-ENV NEXT_PUBLIC_KAKAO_API_KEY=$NEXT_PUBLIC_KAKAO_API_KEY
-
-ARG NEXT_PUBLIC_KAKAO_KEY
-ENV NEXT_PUBLIC_KAKAO_KEY=$NEXT_PUBLIC_KAKAO_KEY
-
-ARG NEXT_PUBLIC_MASTER_TOKEN
-ENV NEXT_PUBLIC_MASTER_TOKEN=$NEXT_PUBLIC_MASTER_TOKEN
-
-ARG NEXT_PUBLIC_SOCIAL_LOGIN_API
-ENV NEXT_PUBLIC_SOCIAL_LOGIN_API=$NEXT_PUBLIC_SOCIAL_LOGIN_API
-
-# 빌드 시 환경 변수 확인
-RUN echo "NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL"
-RUN echo "NEXT_PUBLIC_IMAGE_URL: $NEXT_PUBLIC_IMAGE_URL"
-RUN echo "NEXT_PUBLIC_KAKAO_API_KEY: $NEXT_PUBLIC_KAKAO_API_KEY"
-RUN echo "NEXT_PUBLIC_KAKAO_KEY: $NEXT_PUBLIC_KAKAO_KEY"
-RUN echo "NEXT_PUBLIC_MASTER_TOKEN: $NEXT_PUBLIC_MASTER_TOKEN"
-RUN echo "NEXT_PUBLIC_SOCIAL_LOGIN_API: $NEXT_PUBLIC_SOCIAL_LOGIN_API"
 
 # 프리티어 오류 발생으로 빌드 전에 프리티어 규칙 적용
 RUN npx prettier --write .
@@ -84,6 +55,7 @@ RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nextjs
 # }
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 
+COPY --from=builder /app/next.config.mjs ./
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static

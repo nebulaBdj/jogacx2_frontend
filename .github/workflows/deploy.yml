@@ -17,6 +17,7 @@ jobs:
 
       - name: ENV File 설정중
         run: |
+          touch .env
           echo "${{ secrets.ENV }}" > .env
         shell: bash
 
@@ -37,7 +38,7 @@ jobs:
           file: Dockerfile
           push: true
           tags: ${{ secrets.NCP_CONTAINER_REGISTRY }}/cnergy-frontend:${{ github.sha }} #깃허브 커밋 해시값으로 이미지 구분
-        
+
   pull_from_registry:
     name: NCP 접속 후 이미지 다운로드 및 배포
     needs: push_to_registry
@@ -66,12 +67,4 @@ jobs:
             docker run -d \
             -p 3000:3000 \
             --name cnergy-frontend \
-            -e NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} \
-            -e NEXT_PUBLIC_IMAGE_URL=${{ secrets.NEXT_PUBLIC_IMAGE_URL }} \
-            -e NEXT_PUBLIC_KAKAO_API_KEY=${{ secrets.NEXT_PUBLIC_KAKAO_API_KEY }} \
-            -e NEXT_PUBLIC_KAKAO_KEY=${{ secrets.NEXT_PUBLIC_KAKAO_KEY }} \
-            -e NEXT_PUBLIC_MASTER_TOKEN=${{ secrets.NEXT_PUBLIC_MASTER_TOKEN }} \
-            -e NEXT_PUBLIC_SOCIAL_LOGIN_API=${{ secrets.NEXT_PUBLIC_SOCIAL_LOGIN_API }} \
-            $IMAGE_ID
-
             docker image prune -f
