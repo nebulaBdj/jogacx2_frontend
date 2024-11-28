@@ -15,6 +15,8 @@ export default function ChoiceTime({ setError }: SetErrorProps) {
 
   const { spareTime, setSpareTime } = useActivityStore()
 
+  console.log('자투리 시간', spareTime)
+
   const [isInitialized, setIsInitialized] = useState(false)
 
   const validateTime = (inputTime: string) => {
@@ -72,7 +74,7 @@ export default function ChoiceTime({ setError }: SetErrorProps) {
         <p className="font-semibold text-28">저는 지금,</p>
         <div className="flex">
           <input
-            value={spareTime}
+            value={spareTime.toString()}
             placeholder="분 단위로 입력해주세요"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               handleChangeTime(e.target.value)

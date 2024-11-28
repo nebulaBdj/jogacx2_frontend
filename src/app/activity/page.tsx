@@ -67,8 +67,6 @@ export default function ActivityPage() {
         localStorage.setItem('activityId', responseData.id.toString())
 
         setActivityId(responseData.id)
-
-        setActivityId(data.id)
       } catch (error) {
         console.error('Error sending POST request:', error)
       }
