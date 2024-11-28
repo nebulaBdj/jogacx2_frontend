@@ -1,6 +1,5 @@
-import Badge from '@/components/common/Badge'
-import Div from '@/components/common/Div'
-import Cup from '@/components/Icons/Cup'
+import { categoryLabels } from '@/app/archive/api/types'
+import { Badge, Cup, Div } from '@/components'
 
 interface TimeCardProps {
   time: number
@@ -18,7 +17,7 @@ export default function TimeCard({ time, category, title }: TimeCardProps) {
         </div>
       </div>
       <div className="flex flex-col mt-80 gap-5">
-        <Badge className="!text-11">{category}의 조각</Badge>
+        <Badge className="!text-11">{categoryLabels[category]}의 조각</Badge>
         <p>{title}</p>
       </div>
     </Div>
