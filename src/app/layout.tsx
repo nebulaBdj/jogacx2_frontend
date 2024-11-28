@@ -4,6 +4,7 @@ import { GlobalErrorBoundary } from '@/react-utils/ErrorBoundary'
 import { Suspense } from 'react'
 import { QueryProvider } from '@/lib'
 import { cn } from '@/util'
+import MobileWrapper from '@/components/MobileWrapper/MobileWrapper'
 import { pretendard, wavvepado } from '../../public/fonts'
 
 export const metadata: Metadata = {
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body className={cn(pretendard.variable, wavvepado.variable)}>
         <GlobalErrorBoundary renderFallback={<div>에러가 발생했어요 !</div>}>
           <Suspense fallback={<div>로딩 중입니다...</div>}>
-            <QueryProvider>{children}</QueryProvider>
+            <QueryProvider>
+              <MobileWrapper>{children}</MobileWrapper>
+            </QueryProvider>
           </Suspense>
         </GlobalErrorBoundary>
       </body>
