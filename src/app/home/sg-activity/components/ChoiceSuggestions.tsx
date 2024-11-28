@@ -38,12 +38,13 @@ export default function ChoiceSuggestion({
   setSeletedActivity,
   setActivityLink,
   setPostActivityType,
+  isSuggestLoading,
+  setIsSuggestLoading,
 }: ChoiceSuggestionProps) {
   const { userInfo } = useUserInfo()
   const { nickname } = userInfo
   const { spareTime, activityType, keywords, address } = useActivityStore()
   const [responseData, setResponseData] = useState<ActivityData[]>()
-  const [isloading, setIsLoading] = useState(true)
   const activeType = getActiveType(activityType)
   const postData = {
     spareTime: parseInt(spareTime, 10),
@@ -67,7 +68,7 @@ export default function ChoiceSuggestion({
     const fetchData = async () => {
       console.log('보내는 데이터 확인', postData)
       try {
-        setIsLoading(true)
+        setIsSuggestLoading(true)
 
         const accessToken = Cookies.get('accessToken')
 
@@ -98,7 +99,7 @@ export default function ChoiceSuggestion({
       } catch (error) {
         console.error('Error sending POST request:', error)
       } finally {
-        setIsLoading(false)
+        setIsSuggestLoading(false)
       }
     }
 
@@ -122,11 +123,11 @@ export default function ChoiceSuggestion({
 
   return (
     <div>
-      {isloading ? (
+      {isSuggestLoading ? (
         <SuggestionWait nickname={nickname} keywords={keywords} />
       ) : (
         <>
-          <div>
+          <div className="max-w-390">
             <section className="w-342 mx-auto mt-50 text-center">
               <h1 className="font-semibold text-20">
                 조각조각이 {nickname} 님에게
@@ -161,10 +162,10 @@ export default function ChoiceSuggestion({
                           className="mt-10"
                         />
                         <div className="w-270 mx-auto">
-                          <p className="text-16 text-primary_foundation-30">
+                          <p className="text-16 text-primary_foundation-30 line-clamp-1">
                             {cardData.content}
                           </p>
-                          <h3 className="font-semibold text-24 text-primary_foundation-5 w-260">
+                          <h3 className="font-semibold text-24 text-primary_foundation-5 w-260 line-clamp-2">
                             {cardData.title}
                           </h3>
                         </div>
@@ -173,7 +174,7 @@ export default function ChoiceSuggestion({
                   ))}
               </Swiper>
 
-              <div className="custom-pagination relative flex justify-center mt-20 z-10" />
+              <div className="custom-pagination relative flex justify-center z-10 mt-30" />
             </section>
           </div>
           <img
