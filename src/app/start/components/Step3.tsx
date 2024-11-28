@@ -27,8 +27,8 @@ export default function Step3() {
             <Image
               alt="image"
               src={`/image/profile/profile${id}.svg`}
-              width={208}
-              height={208}
+              width={200}
+              height={200}
             />
           </div>
         ))}

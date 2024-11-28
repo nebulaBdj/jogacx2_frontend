@@ -3,7 +3,7 @@ import SplashLogoNew from '../Icons/SplashLogoNew'
 
 export default function MobileWrapper({ children }: { children: ReactNode }) {
   return (
-    <div className="flex justify-center h-[100vh]">
+    <div className="flex justify-center h-[100vh] overflow-hidden">
       <aside className="hidden min-w-380 mr-[5%] min-[800px]:block">
         <div className="flex flex-col h-full justify-center items-center">
           <SplashLogoNew className="my-auto" />

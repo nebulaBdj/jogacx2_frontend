@@ -58,7 +58,7 @@ export default function Start() {
           />
         </div>
 
-        <div>
+        <div className="h-[80%]">
           <If condition={step === 1}>
             <Step1 setError={setError} />
           </If>
