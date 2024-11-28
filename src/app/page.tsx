@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import SplashLogoNew from '@/components/Icons/SplashLogoNew'
@@ -11,13 +10,8 @@ import OauthBtn from '@/components/Oauth/OauthBtn'
 export default function Home() {
   const [isSplash, setIsSplash] = useState(true)
   const [logoColor, setlogoColor] = useState('white')
-  const { push } = useRouter()
 
   useEffect(() => {
-    const userInfo = localStorage.getItem('userInfo')
-    if (userInfo) {
-      push('/home')
-    }
 
     const timer = setTimeout(() => {
       setIsSplash(false)
