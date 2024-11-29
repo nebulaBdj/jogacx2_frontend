@@ -8,7 +8,9 @@ import axios, {
 } from 'axios'
 import Cookies from 'js-cookie'
 import { ACCESS_TOKEN, HTTP_METHODS } from '@/constants'
-import { BaseResponse } from './types'
+import { useLogout } from '@/app/auth/auth'
+import { useRouter } from 'next/navigation'
+import { BaseResponse, ErrorResponse } from './types'
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: '/v1',
@@ -35,11 +37,43 @@ axiosInstance.interceptors.request.use(
 )
 axiosInstance.interceptors.response.use(
   (response: AxiosResponse) => response.data,
-  async (error: AxiosError) => {
+  async (error: AxiosError): Promise<ErrorResponse> => {
+    const { push } = useRouter()
+    const { logout } = useLogout()
+
     if (!error.response) {
-      return Promise.reject(error)
+      alert('네트워크 오류가 발생했습니다. 다시 시도해 주세요.')
+      throw {
+        success: false,
+        timestamp: new Date(),
+        statusCode: 0,
+        code: 'NETWORK_ERROR',
+        message: 'Network Error',
+      } as ErrorResponse
     }
-    return Promise.reject(error.response.data)
+
+    const { status: statusCode } = error.response
+    const message =
+      (error.response.data as { message?: string })?.message ||
+      'An error occurred'
+    const code =
+      (error.response.data as { code?: string })?.code || 'UNKNOWN_ERROR'
+    if (statusCode === 401) {
+      alert('인증이 만료되었습니다. 다시 로그인해 주세요.')
+      logout()
+      push('/')
+    } else if (statusCode === 500) {
+      alert('서버에서 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.')
+    } else {
+      alert(message || '오류가 발생했습니다.')
+    }
+    throw {
+      success: false,
+      timestamp: new Date(),
+      statusCode,
+      code,
+      message,
+    } as ErrorResponse
   },
 )
 

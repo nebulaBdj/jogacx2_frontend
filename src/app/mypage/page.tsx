@@ -1,6 +1,5 @@
 'use client'
 
-import Cookies from 'js-cookie'
 import { Button, HeaderWithBack, IconRight, Pencil, Switch } from '@/components'
 import useUserInfo from '@/store/useUserInfo'
 import { useRouter } from 'next/navigation'
@@ -8,6 +7,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { useMyPageContext } from './components/fetcher'
 import { usePatchAlarm } from './api/queries'
+import { useLogout } from '../auth/auth'
 
 export default function MyPage() {
   const { nickname, profileImage } = useUserInfo().userInfo
@@ -15,7 +15,7 @@ export default function MyPage() {
 
   const { isEmailNotificationEnabled, email } = useMyPageContext()
   const { mutate } = usePatchAlarm()
-  const { deleteUserInfo } = useUserInfo()
+  const { logout } = useLogout()
 
   const [isEmailAlert, setIsEmailAlert] = useState(isEmailNotificationEnabled)
 
@@ -92,9 +92,7 @@ export default function MyPage() {
               type="submit"
               className="px-20 py-16"
               onClick={() => {
-                deleteUserInfo()
-                Cookies.remove('accessToken')
-                push('/')
+                logout()
               }}
             >
               <span>로그아웃</span>
