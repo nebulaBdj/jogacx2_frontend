@@ -12,7 +12,7 @@ export default function FastPage() {
 
   return (
     <HeaderWithBack title="빠른 시작" onBack={() => router.back()}>
-      <Div className="flex flex-col gap-15 pb-100">
+      <Div className="flex flex-col gap-15 pb-50">
         {quickStartResponses.map(
           ({ id, meridiem, type, name, hour, minute, spareTime }) => (
             <FastCard
@@ -29,7 +29,7 @@ export default function FastPage() {
         )}
       </Div>
       <Button
-        className="fixed inset-x-0 bottom-30 mx-auto w-[80%] max-w-280 whitespace-nowrap"
+        className="sticky  bottom-20 mx-auto w-[80%] max-w-280 whitespace-nowrap"
         onClick={() => router.push('/home/fast/add')}
         rightIcon={<Plus />}
       >

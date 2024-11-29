@@ -53,7 +53,7 @@ export default function FastPage() {
 
   const validateName = (value: string): void => {
     setErrorName(
-      !value.match(/^[a-zA-Z가-힣\u3131-\u314e0-9]{1,10}$/)
+      !value.match(/^[a-zA-Z가-힣\u3131-\u314e0-9\s]{1,10}$/)
         ? '이름은 10자 이내의 한글/영문/숫자로 설정해 주세요.'
         : '',
     )

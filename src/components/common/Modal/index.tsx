@@ -40,7 +40,7 @@ export default function Modal({
       />
       <div
         className={cn(
-          'bg-white rounded-16 shadow-lg w-[80%] relative',
+          'bg-white rounded-16 shadow-lg w-[80%] max-w-400 relative',
           className,
         )}
         role="document"

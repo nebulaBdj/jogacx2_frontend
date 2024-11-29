@@ -69,7 +69,7 @@ export default function OverviewHeader({
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title="월 선택하기"
-        className="max-h-350 overflow-auto top-0"
+        className="max-h-350 max-w-300 overflow-auto top-0"
       >
         <MonthSelect
           currentDate={currentDate}
