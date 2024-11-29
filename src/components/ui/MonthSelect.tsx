@@ -1,5 +1,6 @@
 import useUserInfo from '@/store/useUserInfo'
 import { addMonths, differenceInMonths, format } from 'date-fns'
+import { Check } from '../Icons'
 
 interface MonthSelectProps {
   currentDate: Date
@@ -23,17 +24,17 @@ export default function MonthSelect({
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col px-24">
       {months.map((month) => (
         <button
           type="button"
           key={month.toISOString()}
           onClick={() => handleMonthSelect(month)}
-          className="flex justify-between items-center h-48 py-12 rounded-lg"
+          className="flex justify-between items-center h-48 pb-12 rounded-lg"
         >
           {format(month, 'yyyy년 MM월')}
           {format(month, 'yyyy-MM') === format(currentDate, 'yyyy-MM') && (
-            <span className="text-accent-100">✔</span>
+            <Check color="#FF4F38" />
           )}
         </button>
       ))}

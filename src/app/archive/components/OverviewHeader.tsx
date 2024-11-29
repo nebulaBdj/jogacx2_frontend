@@ -65,12 +65,11 @@ export default function OverviewHeader({
           총 {monthlyActivityCount}개의 조각
         </span>
       </header>
-
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title="월 선택하기"
-        className="max-h-350 overflow-auto"
+        className="max-h-350 overflow-auto top-0"
       >
         <MonthSelect
           currentDate={currentDate}

@@ -46,13 +46,13 @@ export default function Modal({
         role="document"
       >
         {title && (
-          <header className="mb-16 p-24 bg-white rounded-16">
+          <header className="p-24 bg-white rounded-16">
             <h2 id="modal-title" className="text-18 font-semibold">
               {title}
             </h2>
           </header>
         )}
-        <div className="mt-45">{children}</div>
+        <div>{children}</div>
       </div>
     </div>
   )

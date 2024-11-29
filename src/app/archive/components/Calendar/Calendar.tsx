@@ -19,6 +19,8 @@ export default function Calendar({
 }: CalendarProps) {
   const currentMonth = getMonth(currentDate)
 
+  const today = new Date()
+
   const getActivityForDate = (date: Date): Activity[] => {
     return activities.filter((activity) =>
       isSameDay(parseISO(activity.activityCreatedAt), date),
@@ -64,7 +66,7 @@ export default function Calendar({
                   'flex w-full items-center justify-center aspect-square rounded-12 cursor-pointer bg-white',
 
                   dayMonth !== currentMonth && 'text-primary_foundation-20', // 현재 월 날짜
-                  isSameDay(day, currentDate) && 'border border-[#1a1a25]/50',
+                  isSameDay(day, today) && 'border border-[#1a1a25]/50',
                   activitiesForDay.length > 0 && 'bg-red-100 text-red-600', // 활동이 있는 날짜
                   selectedDate &&
                     isSameDay(day, selectedDate) &&
