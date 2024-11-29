@@ -38,11 +38,10 @@ export default function FastCard(quickStart: QuickStart) {
   return (
     <div className="px-16 py-12 flex justify-between w-full items-center border border-primary_foundation_10 rounded-8">
       <div className="flex flex-col items-start gap-12">
-        <div className="flex gap-10 items-center">
+        <div className="flex gap-10 items-center text-16">
           <p>{name}</p>
           <Pencil onClick={handleClickEdit} />
         </div>
-
         <div className="flex gap-8">
           <Badge>
             {meridiem} {hour}시 {minute}분
@@ -50,7 +49,12 @@ export default function FastCard(quickStart: QuickStart) {
           <Badge>{spareTime}분</Badge> <Badge>{ActiveTypeMap[type]}</Badge>
         </div>
       </div>
-      <Right color="#333333" onClick={() => goToActivity(quickStart)} />
+      <Right
+        color="#333333"
+        width={19}
+        height={19}
+        onClick={() => goToActivity(quickStart)}
+      />
     </div>
   )
 }
