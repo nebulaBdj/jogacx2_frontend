@@ -10,7 +10,7 @@ export default function FooterButtons({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'w-full sticky bottom-0 flex justify-center gap-12 bg-white pt-15 pb-40',
+        'w-full sticky bottom-0 flex justify-center gap-12 bg-white py-15',
         className,
       )}
     >
