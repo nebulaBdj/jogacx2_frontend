@@ -7,7 +7,7 @@ import ModalContent from './ModalContent'
 import ModalContent2 from './ModalContent2'
 
 export default function NoTimePiece() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(true)
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const modalContents = [
@@ -56,12 +56,12 @@ export default function NoTimePiece() {
 
       <Modal
         bgClassName="backdrop-blur"
-        className="bg-transparent"
+        className="bg-transparent max-w-320"
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       >
         <IconClose
-          className="absolute top-7 right-0 cursor-pointer"
+          className="absolute top-[-33px] right-0 cursor-pointer"
           onClick={() => setIsModalOpen(false)}
         />
 
@@ -77,40 +77,40 @@ export default function NoTimePiece() {
               {component}
             </div>
           ))}
-        </div>
 
-        <div className="absolute bottom-[-30px] left-8 right-8 flex justify-between items-center px-8">
-          {currentSlide > 0 && (
-            <button
-              type="button"
-              className="text-white font-semibold pr-10"
-              onClick={handlePrevious}
-            >
-              이전
-            </button>
-          )}
+          <div className="absolute bottom-[-30px] left-8 right-8 flex justify-between items-center px-8">
+            {currentSlide > 0 && (
+              <button
+                type="button"
+                className="text-white pr-10"
+                onClick={handlePrevious}
+              >
+                이전
+              </button>
+            )}
 
-          <div className="absolute bottom-14 left-0 right-0 flex justify-center gap-4">
-            {modalContents.map(({ id }) => (
-              <div
-                key={id}
-                className={cn(
-                  'h-2 w-24 rounded-full bg-[#8a8a8d] transition-all duration-500',
-                  currentSlide === id && ' bg-white',
-                )}
-              />
-            ))}
+            <div className="absolute bottom-14 left-0 right-0 flex justify-center gap-4">
+              {modalContents.map(({ id }) => (
+                <div
+                  key={id}
+                  className={cn(
+                    'h-2 w-24 rounded-full bg-[#8a8a8d] transition-all duration-500',
+                    currentSlide === id && ' bg-white',
+                  )}
+                />
+              ))}
+            </div>
+
+            {currentSlide < modalContents.length - 1 && (
+              <button
+                type="button"
+                className="text-white ml-auto pl-10"
+                onClick={handleNext}
+              >
+                다음
+              </button>
+            )}
           </div>
-
-          {currentSlide < modalContents.length - 1 && (
-            <button
-              type="button"
-              className="text-white font-semibold ml-auto pl-10"
-              onClick={handleNext}
-            >
-              다음
-            </button>
-          )}
         </div>
       </Modal>
     </Div>
