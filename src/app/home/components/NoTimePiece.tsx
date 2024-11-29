@@ -7,7 +7,7 @@ import ModalContent from './ModalContent'
 import ModalContent2 from './ModalContent2'
 
 export default function NoTimePiece() {
-  const [isModalOpen, setIsModalOpen] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const modalContents = [
