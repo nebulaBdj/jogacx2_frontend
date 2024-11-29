@@ -24,9 +24,9 @@ export default function Home() {
 
   return (
     <HomeHeader title="홈">
-      <div className="bg-[#F3F3F4]">
+      <div className="bg-[#F3F3F4] h-inherit">
         <Div className="red-gradient flex flex-col gap-20 rounded-t-0">
-          <h1 className="text-24 mt-10 font-semibold">
+          <h1 className="text-24 mt-8 font-semibold">
             {userInfo.nickname}님, <br /> 지금 시간 조각을 모아볼까요?
           </h1>
           <Button
@@ -56,9 +56,8 @@ export default function Home() {
 
           {activities.length ? <TimePiece /> : <NoTimePiece />}
         </Div>
-
-        <FooterButtons />
       </div>
+      <FooterButtons />
     </HomeHeader>
   )
 }

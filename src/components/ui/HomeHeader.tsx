@@ -19,7 +19,7 @@ export default function HomeHeader({ children, title }: HomeHeaderProps) {
     <div className="flex w-full flex-col relative">
       <header
         className={cn(
-          'absolute top-0 z-10 w-full font-semibold flex items-center justify-between py-10 h-52 px-24 transition-colors duration-300 font-wavvepado bg-white',
+          'sticky top-0 z-10 w-full font-semibold flex items-center justify-between py-10 h-52 px-24 transition-colors duration-300 font-wavvepado bg-white',
         )}
       >
         <button
@@ -44,7 +44,7 @@ export default function HomeHeader({ children, title }: HomeHeaderProps) {
           />
         </button>
       </header>
-      <main className="min-h-screen mt-52">{children}</main>
+      <main>{children}</main>
     </div>
   )
 }

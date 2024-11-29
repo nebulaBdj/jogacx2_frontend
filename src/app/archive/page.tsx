@@ -49,7 +49,7 @@ export default function ArchivePage() {
               />
             </AsyncBoundaryWithQuery>
           </div>
-          <div className="absolute top-210 w-full max-w-[600px] bg-white rounded-t-20 py-16">
+          <div className="absolute top-210 w-full max-w-[600px] bg-white rounded-t-20 pt-16">
             <If condition={activeTab === 'calendar'}>
               <AsyncBoundaryWithQuery>
                 <CalendarFetcher

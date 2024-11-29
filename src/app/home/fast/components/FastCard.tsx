@@ -1,6 +1,7 @@
 import { Badge, Pencil, Right } from '@/components'
 import { useRouter } from 'next/navigation'
 import { ActiveTypeMap } from '@/types'
+import { cn } from '@/util'
 import { QuickStart } from '../../api/type'
 import { useQuickStart } from '../../hook/useQuickStart'
 
@@ -44,9 +45,11 @@ export default function FastCard(quickStart: QuickStart) {
         </div>
         <div className="flex gap-8">
           <Badge>
-            {meridiem} {hour}시 {minute}분
+            {meridiem} {hour}시
+            <span className={cn(minute === 0 && 'hidden')}> {minute}분</span>
           </Badge>
-          <Badge>{spareTime}분</Badge> <Badge>{ActiveTypeMap[type]}</Badge>
+          <Badge>{spareTime}분</Badge>
+          <Badge>{ActiveTypeMap[type]}</Badge>
         </div>
       </div>
       <Right
